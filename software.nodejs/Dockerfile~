@@ -1,0 +1,7 @@
+FROM localhost:5000/base/trusty
+
+MAINTAINER Brian Burton <brian.burton@vodafone.com>
+
+RUN apt-get update && apt-get install -y curl
+RUN curl -sL https://deb.nodesource.com/setup | bash -
+RUN apt-get update && apt-get install -y nodejs

@@ -1,0 +1,18 @@
+Headline: Upstart preventing apt-get install
+
+Symptom: Sometimes, you just can't apt-get install something - it fails with messages about upstart not running.
+
+Problem: Upstart isn't running inside the container so any (broken!) installer that checks for upstart to be running will fail.
+
+Solution: Trick the installer into thinking Upstart is running by temporarily removing upstart and replacing it with true.
+
+Snippet:
+  dpkg-divert --local --rename --add /sbin/initctl && \
+  ln -s /bin/true /sbin/initctl && \
+  <insert troublesome code here> && \
+  rm /sbin/initctl && \
+  dpkg-divert --rename --remove /sbin/initctl && \
+
+Tip: This assumes you haven't issued a USER directive in the Dockerfile.
+
+Attribution: So many people use this same snippet that I don't know who to credit for it...

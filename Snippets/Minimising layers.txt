@@ -1,0 +1,31 @@
+Headline: Minimising number of layers
+
+Symptom: Lots of layers...
+
+Problem: Lots of Dockerfile commands...
+
+Solution: Some basic commandline-fu. Double-ampersand allows command chaining on a single command line in Bash. A backslash at the end of the line in a Dockerfile continues the same command line on a separate line of the text file. Make it pretty, make it neat, make it less layered.
+
+Snippet:
+
+Ugly version
+
+  RUN command_a arg1 arg2 arg3
+  RUN command_b arg4 arg5 arg6
+  RUN command_c arg7 arg8 arg9
+
+One-line version
+
+  RUN command_a arg1 arg2 arg3 && command_b arg4 arg5 arg6 && command_c arg7 arg8 arg9
+
+Pretty, multi-line version
+
+  RUN \
+      command_a arg1 arg2 arg3 && \
+      command_b arg4 arg5 arg6 && \
+      command_c arg7 arg8 arg9
+
+Tip: You can't avoid some layering, and the limitation people have reported with AUFS layers has moved into the future, but minimising where possible will make your layers a bit more human-readable (think: "docker history").
+
+Attribution:
+Err. Probably the people who wrote Linux, Bash and Docker...or something...I dunno.

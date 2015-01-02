@@ -1,0 +1,21 @@
+Headline: Something sneaky preventing apt-get install
+
+Symptom: Sometimes, you just can't apt-get install something, and the error message doesn't necessarily indicate what the real problem is.
+
+Problem: Some scripts check to see if they are running in a chroot jail using the ischroot command. Apparently, ischroot reports false when you're in a docker container. Technically true, but not helpful...
+
+Solution: Trick the installer into thinking we're in a chroot jail.
+
+Snippet:
+  dpkg-divert --local --rename --add /usr/bin/ischroot && \
+  ln -s /bin/true /usr/bin/ischroot && \
+  <insert troublesome code here> && \
+  rm /usr/bin/ischroot && \
+  dpkg-divert --rename --remove /usr/bin/ischroot && \
+
+Tip: This assumes you haven't issued a USER directive in the Dockerfile.
+
+Attribution:
+I hunted around for this for ages, and came across an article by a chap called Paul Querna. While I didn't solve the problem in exactly the same way he did, it was his research and explanation that helped me fix the problem.
+
+https://journal.paul.querna.org/articles/2013/10/15/docker-ubuntu-on-rackspace/
