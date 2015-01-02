@@ -1,3 +1,6 @@
+# Make sure you create a folder with the nodered installer in it, and
+# modify this Dockerfile accordingly.
+
 FROM dockerreg:5000/software/nodejs
 
 ADD node-red-0.9.1.tar /
