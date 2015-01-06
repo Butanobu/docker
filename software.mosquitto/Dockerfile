@@ -1,4 +1,4 @@
-FROM dockerreg:5000/base/utopic
+FROM dockerreg:5000/base/ubuntu
 
 RUN \
     dpkg-divert --local --rename --add /sbin/initctl && \
@@ -9,5 +9,4 @@ RUN \
     apt-get update && \
     apt-get install -y mosquitto && \
     rm /sbin/initctl && \
-    dpkg-divert --rename --remove /sbin/initctl && \
-    adduser --system --disabled-password --disabled-login mosquitto
+    dpkg-divert --rename --remove /sbin/initctl

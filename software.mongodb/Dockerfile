@@ -1,4 +1,4 @@
-FROM dockerreg:5000/software/openjdk
+FROM dockerreg:5000/base/ubuntu
 
 RUN dpkg-divert --local --rename --add /sbin/initctl && \
     ln -s /bin/true /sbin/initctl && \

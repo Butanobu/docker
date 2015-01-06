@@ -5,7 +5,7 @@
 # This dockerfile uses ubuntu trusty as the base, without uploading to a
 # registry first.
 
-FROM ubuntu:14.04_v1
+FROM dockerreg:5000/base/ubuntu:14.04_ootb
 
 # There are some files we need to add. If you need to add more files,
 # put them in a directory structure in the base folder this Dockerfile

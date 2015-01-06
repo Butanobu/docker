@@ -1,4 +1,4 @@
-FROM dockerreg:5000/base/trusty
+FROM dockerreg:5000/base/ubuntu:14.04_v1
 
 RUN apt-get update && \
     apt-get install -y curl && \
