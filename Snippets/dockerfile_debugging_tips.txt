@@ -1,0 +1,18 @@
+Headline: Some hints to save time/bandwidth when debugging
+
+Symptom: You're working through a Dockerfile, it takes ages to build and it just...keeps...going...wrong.
+
+Problem: After optimising the number of RUN statements, you find that downloading everything you need time and time again is just taking forever and is annoying and wasteful.
+
+Solution: Temporarily de-optimise your run statements. Create a RUN statement for all the beginning bits that work, and let those run through successfully. As long as you don't 'docker rmi' your failed 'docker build' you still have some assets that are cached for re-use.
+
+Snippet:
+
+'RUN apt-get install -d <package list>' will create a layer that just downloads the packages without installing them. You can 'RUN apt-get install -y <package list> later without downloading them again.
+
+'RUN apt-get install <packages that work fine>' followed by 'RUN apt-get install <packages you're still debugging>'.
+
+Tip: This list will get longer over time...
+
+Attribution:
+Me.

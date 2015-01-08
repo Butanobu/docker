@@ -1,0 +1,23 @@
+Headline: Keeping the images small and tidy
+
+Symptom: Installing a package in a container leaves behind artefacts that are unnecessary to carry forward.
+
+Problem: APT assumes that the operating system is going to be kept up to date and has rules for removing old files, but the images are read only, so whatever goes in stays in.
+
+Solution: A bit of spring-cleaning. 'apt-get clean' removes all downloaded packages. '/var/lib/apt/lists' contains the package lists that 'apt-get update' downloads.
+
+Snippet:
+
+RUN \
+  apt-get update && \
+  apt-get install -y <package name> && \
+  <other code> && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/*
+
+
+
+Tip: This approach gives tidier images at the cost of possible extra downloads.
+
+Attribution:
+This one is my own fault.
