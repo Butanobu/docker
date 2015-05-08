@@ -1,9 +1,5 @@
 Butanobu's Dockerfiles!
 
-**Stop Press**
-
-I've been working with Docker for a while now and I've realised more and more functionality. There's going to be a big revamp coming up, so until the Big Refresh I consider most of this "useful history".
-
 Here is my collection of Docker files.
 
 Working for a large organisation that probably won't use Docker Hub, my focus with these Dockerfiles has been to build a collection of applications, as neatly tiered as I can, that will enable me to populate a private registry whose prototype is currently (Happy New 2015, everyone!) running in a KVM virtual machine on my laptop.

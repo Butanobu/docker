@@ -30,6 +30,7 @@ ADD trusty.tar /
 RUN \
   apt-get update && \
   apt-get -y upgrade && \
-  apt-get install -y update-manager-core build-essential software-properties-common curl man unzip vim wget && \
+#14.04_v1  apt-get install -y update-manager-core build-essential software-properties-common curl man unzip vim wget && \
+  apt-get install -y update-manager-core build-essential software-properties-common curl man unzip vim wget python && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
