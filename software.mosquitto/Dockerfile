@@ -9,5 +9,6 @@ RUN \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+EXPOSE 1883
 USER mosquitto
 CMD ["/usr/sbin/mosquitto"]

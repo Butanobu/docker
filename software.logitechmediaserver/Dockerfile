@@ -13,3 +13,7 @@ VOLUME ["/var/lib/squeezeboxserver"]
 VOLUME ["/var/log/squeezeboxserver"]
 
 ENV LANG ja_JP.UTF-8
+
+EXPOSE 1900/UDP 3483/TCP 3484/UDP 9000/TCP
+
+CMD ["squeezeboxserver"]
