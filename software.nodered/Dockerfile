@@ -16,3 +16,9 @@ RUN npm install --production && \
                 feedparser \
                 redis \
                 mongodb
+
+VOLUME ["/node-red-0.9.1"]
+
+EXPOSE 1880
+
+CMD ["node", "red.js"]

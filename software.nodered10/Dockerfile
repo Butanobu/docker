@@ -20,4 +20,14 @@ RUN npm install node-red \
                 js2xmlparser \
                 feedparser \
                 redis \
-                mongodb
+                mongodb && \
+    mkdir /home/nodered/.node-red && \
+    chown nodered:nodered /home/nodered/.node-red
+
+USER nodered
+
+VOLUME ["/home/nodered/.node-red"]
+
+EXPOSE 1880
+
+CMD ["node-red"]

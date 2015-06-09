@@ -12,3 +12,11 @@ RUN dpkg-divert --local --rename --add /sbin/initctl && \
     rm -rf /var/lib/apt/lists/* && \
     mkdir -p /data/db && \
     chown -R mongodb:mongodb /data
+
+VOLUME ["/data/db"]
+
+EXPOSE 27017 27018 27019 28017
+
+USER mongodb
+
+CMD ["/usr/bin/mongod"]
