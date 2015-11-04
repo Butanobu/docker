@@ -1,9 +1,11 @@
 # Make sure you create a folder with the nodered installer in it, and
 # modify this Dockerfile accordingly.
 
-FROM dockerreg:5000/software/nodejs
+FROM localhost:5000/software/nodejs:V1
 
-RUN npm install node-red \
+RUN  \
+yum install -y git python make gcc && \ 
+npm install node-red \
                 node-red-node-wordpos \
                 node-red-node-smooth \
                 node-red-node-blink1 \
