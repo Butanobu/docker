@@ -1,8 +1,8 @@
-Butanobu's Dockerfiles!
+Brian's old Dockerfiles!
 
 **Stop Press**
 
-I've been working with Docker for a while now and I've realised more and more functionality. There's going to be a big revamp coming up, so until the Big Refresh I consider most of this "useful history".
+I've been working with Docker for a couple of years now, but I consider most of this repo "useful history".
 
 Here is my collection of Docker files.
 
