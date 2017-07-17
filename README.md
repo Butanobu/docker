@@ -2,7 +2,9 @@ Brian's old Dockerfiles!
 
 **Stop Press**
 
-I've been working with Docker for a couple of years now, but I consider most of this repo "useful history".
+This repo is just useful history.
+
+-----
 
 Here is my collection of Docker files.
 
